@@ -7,6 +7,10 @@ This tool facilitates the automatic setup of SSAO in Poiyomi Pro. The tool will 
 
 ![img_1.png](../../../assets/reference/ssao/img_1.png)
 
+:::caution
+Please be responsible when using an effect like SSAO. Do not enable it in heavily populated worlds, and be mindful of the performance implications for those around you.
+:::
+
 ### Usage
 
 To use the tool simply add the prefab of your choice to the root of your avatar.
@@ -50,3 +54,6 @@ In order to simplify the process of adding menus, all of my tools utilize Modula
 
 ![img.png](../../../assets/reference/ssao/img.png)
 
+### Performance Implications
+
+When enabling SSAO, there are some serious performance implications. These mainly reside in the requirement of a realtime directional light (called a "Depth Light"), whenever we want to render the effect. Rendering a realtime light effectively causes Unity to "render the scene an additional time for every realtime light". This is why, by default, the tool forces the depth light to remain off and not saved, forcing you to re-enable it every time you join a world. This way, you can take the time to test and see if the world already contains a depth light, or if another player has one enabled, and use that instead of hosting your own. This will help improve performance as less (and ideally only one) depth light will be active in a given world.
